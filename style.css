@@ -1,0 +1,70 @@
+html,
+body {
+  margin: 0px;
+  background-color: #fdfdfd;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+}
+
+.todo-item {
+  background-color: #fff;
+  position: relative;
+  margin: 15px 0px;
+  padding: 1em 2em;
+
+  border-radius: 29px 29px 29px 29px;
+  -moz-border-radius: 29px 29px 29px 29px;
+  -webkit-border-radius: 29px 29px 29px 29px;
+
+  border: 0px solid #000000;
+
+  -webkit-box-shadow: 10px 10px 63px 0px rgba(0,0,0,0.04);
+  -moz-box-shadow: 10px 10px 63px 0px rgba(0,0,0,0.04);
+  box-shadow: 10px 10px 63px 0px rgba(0,0,0,0.04);
+}
+
+.todo-item span {
+  position: absolute;
+  right: 1em;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 1em 2em;
+  box-sizing: border-box;
+
+  border-radius: 29px 29px 29px 29px;
+  -moz-border-radius: 29px 29px 29px 29px;
+  -webkit-border-radius: 29px 29px 29px 29px;
+  border: 1px;
+
+  -webkit-box-shadow: 10px 10px 63px 0px rgba(0,0,0,0.10);
+  -moz-box-shadow: 10px 10px 63px 0px rgba(0,0,0,0.10);
+  box-shadow: 10px 10px 63px 0px rgba(0,0,0,0.10);
+}
+
+button {
+  background-color: white; 
+  margin-top: 20px;
+  color: black; 
+  border: 2px solid #4CAF50;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
