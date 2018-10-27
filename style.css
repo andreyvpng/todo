@@ -15,6 +15,15 @@ body {
   color: #999;
 }
 
+.header img {
+  width: 175px;
+  margin-bottom: 2em;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+}
+
 .todo-item {
   background-color: #fff;
   position: relative;
@@ -39,7 +48,7 @@ body {
 
 .todo-item span {
   position: absolute;
-  right: 1em;
+  right: 2em;
   cursor: pointer;
   -ms-user-select: none;
   -moz-user-select: none;
