@@ -12,6 +12,7 @@ body {
 
 .header {
   text-align: center;
+  color: #999;
 }
 
 .todo-item {
@@ -31,14 +32,25 @@ body {
   box-shadow: 10px 10px 63px 0px rgba(0,0,0,0.04);
 }
 
+.todo-item.complete {
+  color: #999;
+  text-decoration: line-through;
+}
+
 .todo-item span {
   position: absolute;
   right: 1em;
+  cursor: pointer;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
 }
 
 input[type="text"] {
   width: 100%;
   padding: 1em 2em;
+  margin-bottom: 3em;
   box-sizing: border-box;
 
   border-radius: 29px 29px 29px 29px;
@@ -51,20 +63,17 @@ input[type="text"] {
   box-shadow: 10px 10px 63px 0px rgba(0,0,0,0.10);
 }
 
-button {
-  background-color: white; 
-  margin-top: 20px;
-  color: black; 
-  border: 2px solid #4CAF50;
-  padding: 5px 5px;
+.footer {
+  color: #999;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  cursor: pointer;
+  margin-top: 3em;
 }
 
-button:hover {
-  background-color: #4CAF50;
-  color: white;
+#delete-completed-tasks {
+  text-decoration: underline;
+  cursor: pointer;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
 }

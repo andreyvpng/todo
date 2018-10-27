@@ -1,47 +1,53 @@
 'user strict';
 
-var ctx = [
-  {id: 1, complete: true, text: "Learn html"},
-  {id: 2, complete: false, text: "Learn css"},
-  {id: 3, complete: false, text: "Learn js"},
-  {id: 4, complete: false, text: "Learn python"},
-];
-
 var input_text = document.querySelector('#input-text'),
-    button_add = document.querySelector('#add-new-item');
+    todo_list = document.querySelector('.todo-list'),
+    delete_completed_tasks = document.querySelector('#delete-completed-tasks');
 
-button_add.addEventListener('click', function(event) {
-  if (input_text.value !== '') {
-    appendNewItem({
-      id: NaN,
-      text: input_text.value
-    });
+
+// add new element, when enter is pressed
+input_text.addEventListener('keypress', function(event) {
+  if (event.keyCode == 13) {
+    if (input_text.value !== '') {
+      appendNewItem({
+        id: NaN,
+        text: input_text.value
+      });
+    }
+    input_text.value = "";
   }
 });
 
-var todo_list = document.querySelector('.todo-list');
+
+delete_completed_tasks.addEventListener('click', function() {
+  for (var i = 0; i < todo_list.children.length; i++) {
+    var item = todo_list.children[i];
+
+    if (~item.classList.value.split(' ').indexOf('complete')) {
+      item.remove();
+      i--;
+    }
+  }
+});
+
 
 function getTodoItem(obj) {
-  var wrapper = document.createElement("div");
+  var wrapper = document.createElement("div"),
+      text = document.createTextNode(obj.text),
+      close_button = document.createElement("span");
+
   wrapper.className = 'todo-item';
+  if (obj.complete) wrapper.classList.toggle('complete');
   wrapper.id = '' + obj.id
 
-  var text = document.createTextNode(obj.text);
-
-  var close_button = document.createElement("span");
   close_button.innerText = '❌';
+
+  wrapper.addEventListener('click', function() {
+    wrapper.classList.toggle('complete');
+  });
 
   close_button.addEventListener('click', function(event) {
     var id = wrapper.id;
-
-    // detele item from ctx
-    for (var i = 0; i < ctx.length; i++) {
-      if (ctx[i].id == id) {
-        ctx.splice(i, 1);
-        break;
-      }
-    }
-
     wrapper.remove();
   });
 
@@ -51,10 +57,7 @@ function getTodoItem(obj) {
   return wrapper;
 }
 
+
 function appendNewItem(obj) {
   todo_list.insertBefore(getTodoItem(obj), todo_list.firstChild);
-}
-
-for (var i = 0; i < ctx.length; i++) {
-  appendNewItem(ctx[i]);
 }
